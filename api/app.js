@@ -6,5 +6,5 @@ var port = process.env.PORT || 3000;
 
 /* parametrizar a porta de escuta */
 app.listen(port, function(){
-	console.log('Servidor Online! \nRESTful inicializada na porta: ' + port);
+	console.log('Servidor Online! \nRESTful inicializada na porta ' + port);
 })
