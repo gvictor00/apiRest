@@ -46,3 +46,27 @@ npm install body-parser --save
 ```shell
 npm install child_process --save
 ```
+
+# Configuração de tela
+
+Para configurar a tela da Raspberry será preciso editar alguns arquivos e fazer adaptações.
+
+## Rotacionando a tela
+Editar o arquivo `/boot/config.txt`.
+
+```shell
+sudo nano /boot/config.txt
+```
+E aí adicionar a linha com `display_rotate = 0`, por exemplo, no final do arquivo.
+
+Opções:
+```shell
+display_rotate=0 	Normal (0 degrees)
+display_rotate=1 	90 degrees
+display_rotate=2 	180 degrees
+display_rotate=3 	270 degrees
+
+NOTE: You can rotate both the image and touch interface 180º by entering lcd_rotate=2 instead
+display_rotate=0x10000 horizontal flip
+display_rotate=0x20000 vertical flip
+```
