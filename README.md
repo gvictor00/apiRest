@@ -2,11 +2,11 @@
 
 Sistema desenvolvido para tratar requisições HTTP e reproduzir videos em uma Raspberry Pi 3.
 
-# Packages importantes
+## Packages importantes
 
 Para instalação e manupilação dos pacotes é preciso instalar o `NPM`, caso não tenha instalado.
 
-## node-omxplayer
+### node-omxplayer
 
 Middleware para integração com omx-player.
 
@@ -14,20 +14,20 @@ Middleware para integração com omx-player.
 npm install node-omx --save
 ```
 
-## Express
+### Express
 Framework para desenvolvimento de aplicaçãos NodeJS.
 
 ```shell
 npm install express --save
 ```
 
-## Nodemon
+### Nodemon
 
 ```shell
 npm install nodemon --save
 ```
 
-## Consign
+### Consign
 
 Scaneia, recupera e inicializa todos o módulos de rotas, views e outros, atribuindo à aplicação. Autoload de rotas, views e config.
 
@@ -35,23 +35,23 @@ Scaneia, recupera e inicializa todos o módulos de rotas, views e outros, atribu
 npm install consign --save
 ```
 
-## Body-Parser
+### Body-Parser
 
 ```shell
 npm install body-parser --save
 ```
 
-# Child-Process
+### Child-Process
 
 ```shell
 npm install child_process --save
 ```
 
-# Configuração de tela
+## Configuração de tela
 
 Para configurar a tela da Raspberry será preciso editar alguns arquivos e fazer adaptações.
 
-## Rotacionando a tela
+### Rotacionando a tela
 Editar o arquivo `/boot/config.txt`.
 
 ```shell
@@ -70,3 +70,10 @@ NOTE: You can rotate both the image and touch interface 180º by entering lcd_ro
 display_rotate=0x10000 horizontal flip
 display_rotate=0x20000 vertical flip
 ```
+
+### Autohide na task bar
+
+1. Botão direito na barra
+2. Configurações
+3. `Automatic hiding` e marcar `Minimise panel when not in use`
+4. Size when minimized `2 pixels`
