@@ -77,3 +77,14 @@ display_rotate=0x20000 vertical flip
 2. Configurações
 3. `Automatic hiding` e marcar `Minimise panel when not in use`
 4. Size when minimized `2 pixels`
+
+##To-do list
+
+- [x] Implementação API REST
+- [x] Tratamento de requisições HTTP
+- [x] Integração HoudiniMC
+- [x] Execução de requisições HTTP
+- [ ] Implementar utilização RPi.GPIO
+- [ ] Reprodução simultânea de áudio com interação luminosa
+- [ ] Execução via requisição HTTP
+- [ ] Definição do áudios e vídeos definitivos
