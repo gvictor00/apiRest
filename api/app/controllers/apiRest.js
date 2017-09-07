@@ -11,7 +11,7 @@ var omx = require('node-omxplayer');
 module.exports.parar = function(application, req, res)
 {
 	res.send('Comando de parada do video foi executado');
-	
+
 	cp.exec('killall omxplayer.bin', function(err, stdout, stderr){
 		if(err)
 		{
@@ -42,7 +42,7 @@ module.exports.trovao = function(application, req, res)
 	cp.exec('python ./../../files/trovao.py &', function(err, stdout, stderr){
 		if(err)
 		{			
-			//Envia o erro de volta para o servidor.
+			//Envia o erro de volta para o cliente.
 			res.send(stderr);
 			return;
 		}
