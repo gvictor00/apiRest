@@ -42,3 +42,36 @@ module.exports.repr = function(application, req, res)
 		console.log(vd2.running);
 	}
 }
+
+module.exports.trovao = function(application, req, res)
+{
+	cp.exec('python trovao.py &', function(err, stdout, stderr){
+		if(err)
+		{
+			console.log(stderr);
+			
+			//Envia o erro de volta para o servidor.
+			res.send(stderr);
+			return;
+		}
+		console.log(stdout);
+	});
+}
+
+module.exports.test = function(application, req, res)
+{
+	var process = cp.spawn('python', ["./../../files/trovao.py"]);
+	
+	res.send("Abriu o arquivo python");
+
+	process.stdout.on('data', function(data){
+		res.send("Status: ",data)
+	});
+}
+
+module.exports.testpost = function(application, req, res)
+{
+	params = req.body.video;
+	console.log("Recebido o POST, com params: ",params);
+	res.send("Recebido o POST com sucesso!");
+}
