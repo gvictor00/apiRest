@@ -6,19 +6,17 @@ var cp = require('child_process');
 /* importar o módulo node-omxplayer */
 var omx = require('node-omxplayer');
 
+/* O módulo node-omxplayer usar o child_process para execução da query de reprodução do omxplayer */
+
 module.exports.parar = function(application, req, res)
 {
 	res.send('Comando de parada do video foi executado');
-
-	console.log("Comando de parada");
-
+	
 	cp.exec('killall omxplayer.bin', function(err, stdout, stderr){
 		if(err)
 		{
-			console.log(stderr);
 			return;
 		}
-		console.log(stdout);
 	});
 } 
 
@@ -26,44 +24,35 @@ module.exports.repr = function(application, req, res)
 {
 	var query = req.query.video;
 
-	console.log(query);
 	if(query == '1')
 	{
-		res.send('Script de reprodução do *video 1* sendo executado.');
-		console.log("Carregando o video 1");
+		res.send('Script de reprodução do video 1 sendo executado.');
 		vd1 = omx('/home/pi/Downloads/video1.mp4', 'hdmi');
-		console.log(vd1.running);
 	}
 	else if(query == '2')
 	{
-		res.send('Script de reprodução do *video 1* sendo executado.');
-		console.log("Carregando o video 2");
+		res.send('Script de reprodução do video 2 sendo executado.');
 		vd2 = omx('/home/pi/Downloads/video2.mp4', 'hdmi');
-		console.log(vd2.running);
 	}
 }
 
 module.exports.trovao = function(application, req, res)
 {
-	cp.exec('python trovao.py &', function(err, stdout, stderr){
+	// Script Python precisa ser executado para poder fazer interação com GPIO da Raspberry de forma sincronizada
+	cp.exec('python ./../../files/trovao.py &', function(err, stdout, stderr){
 		if(err)
-		{
-			console.log(stderr);
-			
+		{			
 			//Envia o erro de volta para o servidor.
 			res.send(stderr);
 			return;
 		}
-		console.log(stdout);
 	});
 }
 
 module.exports.test = function(application, req, res)
 {
-	var process = cp.spawn('python', ["./../../files/trovao.py"]);
+	var process = cp.spawn('python', ["./../../files/test.py"]);
 	
-	res.send("Abriu o arquivo python");
-
 	process.stdout.on('data', function(data){
 		res.send("Status: ",data)
 	});
@@ -71,7 +60,7 @@ module.exports.test = function(application, req, res)
 
 module.exports.testpost = function(application, req, res)
 {
-	params = req.body.video;
-	console.log("Recebido o POST, com params: ",params);
-	res.send("Recebido o POST com sucesso!");
+	recvd = req.body.video;
+
+	res.send("Recebido o POST com sucesso! Dado enviado: ", recvd);
 }
