@@ -6,6 +6,9 @@ var cp = require('child_process');
 /* importar o módulo node-omxplayer */
 var omx = require('node-omxplayer');
 
+/* importar o módulo python-shell */
+var ps = require('python-shell');
+
 /* O módulo node-omxplayer usar o child_process para execução da query de reprodução do omxplayer */
 
 module.exports.parar = function(application, req, res)
@@ -43,7 +46,7 @@ module.exports.trovao = function(application, req, res)
 	process.stdout.on('data', function(data){
 		res.send("Status: " + data);
 	});
-	
+
 	// Script Python precisa ser executado para poder fazer interação com GPIO da Raspberry de forma sincronizada
 	/*cp.exec('python /home/pi/Documents/apiRest/api/files/trovao.py', function(err, stdout, stderr){
 		if(err)
