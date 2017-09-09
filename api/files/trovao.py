@@ -8,18 +8,21 @@ from time import sleep
 pygame.mixer.init()
 
 #Loading the sound
-thunder = pygame.mixer.Sound("thunder3.wav")
+#thunder = pygame.mixer.Sound("thunder3.wav")
+
+#Prefer ogg or wav format 
 
 #load a sound file, in the api directory
-#try: 
-#	thunder = pygame.mixer.Sound("thunder3.wav")
-#	print ("Sound loaded")
-#except pygame.error:
-#	print ("Cannot load sound!")
+try: 
+	thunder = pygame.mixer.Sound("thunder3.wav")
+	print ("Arquivo carregado!")
+except pygame.error:
+	print ("Nao foi possivel carregar o arquivo!")
 
 #Executa o som somente uma vez
 aux = thunder.play()
 while aux.get_busy():
-	pygame.time.delay(100)
-sleep(10)
-thunder.stop()
+	continue
+	#pygame.time.delay(100)
+#sleep(2)
+#thunder.stop()

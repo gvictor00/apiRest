@@ -78,7 +78,7 @@ display_rotate=0x20000 vertical flip
 3. `Automatic hiding` e marcar `Minimise panel when not in use`
 4. Size when minimized `2 pixels`
 
-##To-do list
+## To-do list
 
 - [x] Implementação API REST
 - [x] Tratamento de requisições HTTP

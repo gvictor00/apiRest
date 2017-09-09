@@ -38,8 +38,14 @@ module.exports.repr = function(application, req, res)
 
 module.exports.trovao = function(application, req, res)
 {
+	var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/trovao.py"]);
+
+	process.stdout.on('data', function(data){
+		res.send("Status: " + data);
+	});
+	
 	// Script Python precisa ser executado para poder fazer interação com GPIO da Raspberry de forma sincronizada
-	cp.exec('python ./../../files/trovao.py &', function(err, stdout, stderr){
+	/*cp.exec('python /home/pi/Documents/apiRest/api/files/trovao.py', function(err, stdout, stderr){
 		if(err)
 		{			
 			//Envia o erro de volta para o cliente.
@@ -47,14 +53,15 @@ module.exports.trovao = function(application, req, res)
 			return;
 		}
 	});
+	*/
 }
 
 module.exports.test = function(application, req, res)
 {
-	var process = cp.spawn('python', ["./../../files/test.py"]);
+	var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/test.py"]);
 	
 	process.stdout.on('data', function(data){
-		res.send("Status: ",data)
+		res.send("Status: " + data);
 	});
 }
 
@@ -62,5 +69,5 @@ module.exports.testpost = function(application, req, res)
 {
 	recvd = req.body.video;
 
-	res.send("Recebido o POST com sucesso! Dado enviado: ", recvd);
+	res.send("Recebido o POST com sucesso! Dado enviado: " + recvd);
 }
