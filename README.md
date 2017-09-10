@@ -80,10 +80,14 @@ display_rotate=0x20000 vertical flip
 
 ## To-do list
 
+- [x] Tela preta Raspberry
+- [x] Girar tela
+- [x] Auto-hide taskbar
 - [x] Implementação API REST
 - [x] Tratamento de requisições HTTP
 - [x] Integração HoudiniMC
 - [x] Execução de requisições HTTP
+- [x] Execução **simultânea** de Python e omxplayer
 - [ ] Implementar utilização RPi.GPIO
 - [ ] Reprodução simultânea de áudio com interação luminosa
 - [ ] Execução via requisição HTTP
