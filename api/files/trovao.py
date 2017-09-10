@@ -26,3 +26,4 @@ while aux.get_busy():
 	#pygame.time.delay(100)
 #sleep(2)
 #thunder.stop()
+print("Reproduzido");
