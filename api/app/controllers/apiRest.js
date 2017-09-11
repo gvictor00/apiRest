@@ -43,7 +43,7 @@ module.exports.trovao = function(application, req, res)
 
 module.exports.test = function(application, req, res)
 {
-	var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/test.py", '&']);
+	var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/fade.py", '&']);
 	process.stdout.on('data', function(data){
 		console.log(data.toString('utf8'));
 	});
@@ -51,8 +51,8 @@ module.exports.test = function(application, req, res)
 	var date = new Date();
 	console.log("Executou o python em: " + date);
 
-	vd1 = omx('/home/pi/Downloads/video1.mp4', 'hdmi');
-	//vd1 = omx('/home/pi/Documents/apiRest/api/files/thunder3.wav', 'hdmi')
+	//vd1 = omx('/home/pi/Downloads/video1.mp4', 'hdmi');
+	vd1 = omx('/home/pi/Documents/apiRest/api/files/thunder3.wav', 'hdmi')
 	//res.send('Script de reprodução do video 1 sendo executado.');
 
 	date = new Date();
