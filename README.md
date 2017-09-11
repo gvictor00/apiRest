@@ -88,7 +88,7 @@ display_rotate=0x20000 vertical flip
 - [x] Integração HoudiniMC
 - [x] Execução de requisições HTTP
 - [x] Execução **simultânea** de Python e omxplayer
-- [ ] Implementar utilização RPi.GPIO
-- [ ] Reprodução simultânea de áudio com interação luminosa
-- [ ] Execução via requisição HTTP
+- [x] Implementar utilização RPi.GPIO
+- [x] Reprodução simultânea de áudio com interação luminosa
+- [x] Execução via requisição HTTP
 - [ ] Definição do áudios e vídeos definitivos
