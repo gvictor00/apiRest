@@ -43,26 +43,88 @@ module.exports.trovao = function(application, req, res)
 
 module.exports.test = function(application, req, res)
 {
-	var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/fade.py", '&']);
-	process.stdout.on('data', function(data){
-		console.log(data.toString('utf8'));
-	});
+	var rand = Math.floor((Math.random()*4)+1);
+	console.log(rand);
+	if(rand == 1){
+		var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/fade.py", '&']);
+		process.stdout.on('data', function(data){
+			console.log(data.toString('utf8'));
+		});
 
-	var date = new Date();
-	console.log("Executou o python em: " + date);
+		var date = new Date();
+		console.log("Executou o python em: " + date);
 
-	//vd1 = omx('/home/pi/Downloads/video1.mp4', 'hdmi');
-	vd1 = omx('/home/pi/Documents/apiRest/api/files/thunder3.wav', 'hdmi')
-	//res.send('Script de reprodução do video 1 sendo executado.');
+		vd1 = omx('/home/pi/Documents/apiRest/api/files/trovao1.wav', 'hdmi')
 
-	date = new Date();
-	console.log("Chamou o video em: " + date);
-	
-	var date = new Date();
-	console.log("Executou o python em: " + date);
+		date = new Date();
+		console.log("Chamou o audio em: " + date);
+		
+		var date = new Date();
+		console.log("Executou o python em: " + date);
 
-	console.log(date);
-	res.send("Passou por tudo sem erros em: "+date);
+		console.log(date);
+		res.send("Reproduziu o áudio "+rand+" sem erros em: "+date);
+	}else if(rand == 2){
+
+		var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/trovao_fraco.py", '&']);
+		process.stdout.on('data', function(data){
+			console.log(data.toString('utf8'));
+		});
+
+		var date = new Date();
+		console.log("Executou o python em: " + date);
+
+		vd1 = omx('/home/pi/Documents/apiRest/api/files/Trovao_Fraco.mp3', 'hdmi')
+
+		date = new Date();
+		console.log("Chamou o audio em: " + date);
+		
+		var date = new Date();
+		console.log("Executou o python em: " + date);
+
+		console.log(date);
+		res.send("Reproduziu o áudio "+rand+" sem erros em: "+date);
+	}else if(rand == 3){
+
+		var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/trovao_medio.py", '&']);
+		process.stdout.on('data', function(data){
+			console.log(data.toString('utf8'));
+		});
+
+		var date = new Date();
+		console.log("Executou o python em: " + date);
+
+		vd1 = omx('/home/pi/Documents/apiRest/api/files/Trovao_Medio.mp3', 'hdmi')
+
+		date = new Date();
+		console.log("Chamou o audio em: " + date);
+		
+		var date = new Date();
+		console.log("Executou o python em: " + date);
+
+		console.log(date);
+		res.send("Reproduziu o áudio "+rand+" sem erros em: "+date);
+	}else if(rand == 4){
+
+		var process = cp.spawn('python', ["/home/pi/Documents/apiRest/api/files/trovao_muito_forte.py", '&']);
+		process.stdout.on('data', function(data){
+			console.log(data.toString('utf8'));
+		});
+
+		var date = new Date();
+		console.log("Executou o python em: " + date);
+
+		vd1 = omx('/home/pi/Documents/apiRest/api/files/Trovao_Muito_Forte.mp3', 'hdmi')
+
+		date = new Date();
+		console.log("Chamou o audio em: " + date);
+		
+		var date = new Date();
+		console.log("Executou o python em: " + date);
+
+		console.log(date);
+		res.send("Reproduziu o áudio "+rand+" sem erros em: "+date);
+	}
 }
 
 module.exports.testpost = function(application, req, res)
